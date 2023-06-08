@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" name="LogRsmpEquipment">
+	<Appenders>
+		<Console name="STDOUT" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%d{dd/MM/yy HH:mm:ss} %p %c{2}: %m%n" />
+		</Console>
+
+		<RollingFile name="FILE" fileName="log/log.txt"
+			filePattern="log/log_%d{yyyy-MM-dd}.txt">
+			<PatternLayout
+				pattern="%d{dd/MM/yy HH:mm:ss} %p %c{2}: %m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+			<DefaultRolloverStrategy max="1">
+				<Delete basePath="log" maxDepth="1">
+					<IfFileName glob="log_*.txt" />
+					<IfLastModified age="30d" />
+				</Delete>
+			</DefaultRolloverStrategy>
+		</RollingFile>
+
+		<RollingFile name="SAVE_DATA_JSON_RECUS"
+			fileName="sauvegardeDatas/json/recus/recus.txt"
+			filePattern="sauvegardeDatas/json/recus/recus_%d{yyyy-MM-dd}.txt">
+			<PatternLayout
+				pattern="%d{dd/MM/yy HH:mm:ss} %p %c{2}: %m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+			<DefaultRolloverStrategy max="1">
+				<Delete basePath="sauvegardeDatas/json/recus" maxDepth="1">
+					<IfFileName glob="lecture_*.txt" />
+					<IfLastModified age="30d" />
+				</Delete>
+			</DefaultRolloverStrategy>
+		</RollingFile>
+
+		<RollingFile name="SAVE_DATA_JSON_EMIS"
+			fileName="sauvegardeDatas/json/emis/emis.txt"
+			filePattern="sauvegardeDatas/json/emis/emis_%d{yyyy-MM-dd}.txt">
+			<PatternLayout
+				pattern="%d{dd/MM/yy HH:mm:ss} %p %c{2}: %m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+			<DefaultRolloverStrategy max="1">
+				<Delete basePath="sauvegardeDatas/json/emis" maxDepth="1">
+					<IfFileName glob="lecture_*.txt" />
+					<IfLastModified age="30d" />
+				</Delete>
+			</DefaultRolloverStrategy>
+		</RollingFile>
+		
+		<RollingFile name="SAVE_DATA_LCR_RECUS"
+			fileName="sauvegardeDatas/lcr/recus/recus.txt"
+			filePattern="sauvegardeDatas/lcr/recus/recus_%d{yyyy-MM-dd}.txt">
+			<PatternLayout
+				pattern="%d{dd/MM/yy HH:mm:ss} %p %c{2}: %m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+			<DefaultRolloverStrategy max="1">
+				<Delete basePath="sauvegardeDatas/lcr/recus" maxDepth="1">
+					<IfFileName glob="lecture_*.txt" />
+					<IfLastModified age="30d" />
+				</Delete>
+			</DefaultRolloverStrategy>
+		</RollingFile>
+
+		<RollingFile name="SAVE_DATA_LCR_EMIS"
+			fileName="sauvegardeDatas/lcr/emis/emis.txt"
+			filePattern="sauvegardeDatas/lcr/emis/emis_%d{yyyy-MM-dd}.txt">
+			<PatternLayout
+				pattern="%d{dd/MM/yy HH:mm:ss} %p %c{2}: %m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+			<DefaultRolloverStrategy max="1">
+				<Delete basePath="sauvegardeDatas/lcr/emis" maxDepth="1">
+					<IfFileName glob="lecture_*.txt" />
+					<IfLastModified age="30d" />
+				</Delete>
+			</DefaultRolloverStrategy>
+		</RollingFile>
+		
+		<RollingFile name="SAVE_DATA_DIASER_RECUS"
+			fileName="sauvegardeDatas/diaser/recus/recus.txt"
+			filePattern="sauvegardeDatas/diaser/recus/recus_%d{yyyy-MM-dd}.txt">
+			<PatternLayout
+				pattern="%d{dd/MM/yy HH:mm:ss} %p %c{2}: %m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+			<DefaultRolloverStrategy max="1">
+				<Delete basePath="sauvegardeDatas/diaser/recus" maxDepth="1">
+					<IfFileName glob="lecture_*.txt" />
+					<IfLastModified age="30d" />
+				</Delete>
+			</DefaultRolloverStrategy>
+		</RollingFile>
+
+		<RollingFile name="SAVE_DATA_DIASER_EMIS"
+			fileName="sauvegardeDatas/diaser/emis/emis.txt"
+			filePattern="sauvegardeDatas/diaser/emis/emis_%d{yyyy-MM-dd}.txt">
+			<PatternLayout
+				pattern="%d{dd/MM/yy HH:mm:ss} %p %c{2}: %m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+			<DefaultRolloverStrategy max="1">
+				<Delete basePath="sauvegardeDatas/diaser/emis" maxDepth="1">
+					<IfFileName glob="lecture_*.txt" />
+					<IfLastModified age="30d" />
+				</Delete>
+			</DefaultRolloverStrategy>
+		</RollingFile>
+
+	</Appenders>
+
+	<Loggers>
+		<Root level="INFO">
+			<AppenderRef ref="STDOUT" level="INFO" />
+			<!-- AppenderRef ref="STDOUT" level="OFF" / -->
+			<AppenderRef ref="FILE" level="INFO" />
+		</Root>
+
+		<Logger name="LogRsmpEquipmentJsonRecus" level="DEBUG">
+			<AppenderRef ref="SAVE_DATA_JSON_RECUS" level="DEBUG" />
+			<AppenderRef ref="STDOUT" level="DEBUG" />
+		</Logger>
+
+		<Logger name="LogRsmpEquipmentJsonEmis" level="DEBUG">
+			<AppenderRef ref="SAVE_DATA_JSON_EMIS" level="DEBUG" />
+			<AppenderRef ref="STDOUT" level="DEBUG" />
+		</Logger>
+		
+		<Logger name="LogRsmpEquipmentLcrRecus" level="DEBUG">
+			<AppenderRef ref="SAVE_DATA_LCR_RECUS" level="DEBUG" />
+			<AppenderRef ref="STDOUT" level="DEBUG" />
+		</Logger>
+
+		<Logger name="LogRsmpEquipmentLcrEmis" level="DEBUG">
+			<AppenderRef ref="SAVE_DATA_LCR_EMIS" level="DEBUG" />
+			<AppenderRef ref="STDOUT" level="DEBUG" />
+		</Logger>
+		
+		<Logger name="LogRsmpEquipmentDiaserRecus" level="DEBUG">
+			<AppenderRef ref="SAVE_DATA_DIASER_RECUS" level="DEBUG" />
+			<AppenderRef ref="STDOUT" level="DEBUG" />
+		</Logger>
+
+		<Logger name="LogRsmpEquipmentDiaserEmis" level="DEBUG">
+			<AppenderRef ref="SAVE_DATA_DIASER_EMIS" level="DEBUG" />
+			<AppenderRef ref="STDOUT" level="DEBUG" />
+		</Logger>
+
+	</Loggers>
+</Configuration>
