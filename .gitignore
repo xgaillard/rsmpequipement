@@ -1,4 +1,4 @@
 RsmpEquipement.jar
 bin
 sauvegardeDatas
-log
+log/log*.txt
